@@ -47,3 +47,27 @@ data1 = ['wendy', 20, 'M']
 arg = [1,2,3]
 argw = {'num1':1, 'num2':2}
 myfunction(*data1)
+
+
+def fact(n):
+    if n >= 2:
+        return n*fact(n-1)
+    else:
+        return 1
+
+def facttail(num, res):   #optimization the problem of stack overflow: means res * num!
+    if num == 1:
+        return res
+    else:
+        return facttail(num-1, res*num)
+
+
+
+
+
+d = {}
+for i in range(26):
+    key = chr(0x61 + i)
+    d[key] = i
+for (k,v) in d.items():
+    print('the value of %c is %d'%(k,v))
