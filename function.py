@@ -64,3 +64,76 @@ def str2float(s):
         return a[c]
     return 10**(-pd)*reduce(lambda x,y:10*x+y , map(chr2num, s1))
     
+print('str2float(\'123.456\') =', str2float('123.456'))
+if abs(str2float('123.456') - 123.456) < 0.00001:
+    print('测试成功!')
+else:
+    print('测试失败!')
+
+
+
+#filter
+def is_odd(n):
+    return n % 2 == 1
+
+list(filter(is_odd, [1,2,3,4,5,6]))
+
+def not_empty(s):
+    return s and s.strip()
+
+list(filter(not_empty, ['A','','B',None, 'C',' ']))
+
+def prime(lim):
+    a = [x for x in range(2,lim+1)]
+    def delnp(num):
+        
+
+#define a odd sequence.
+def _odd_iter()
+    n = 1
+    while True:
+        n += 2
+        yield n
+
+def _not_divisible(n):
+    return lambda x: x % n > 0
+
+def primes():
+    yield 2
+    it = _odd_iter()
+    while True:
+        n = next(it)
+        yield n
+        it = filter(_not_divisible(n), it)
+
+def is_palindrome(n):
+    return str(n) == str(n)[::-1]
+
+
+
+#sort
+L = [('Bob', 75), ('Adam', 92), ('Bart', 66), ('Lisa', 88)]
+
+def sortregu1(tup):
+    return tup[0].lower()
+
+def sortregu2(tup):
+    return tup[1]
+sorted(L, key = sortregu)
+
+
+#closure
+def lazy_sum(*args):
+    def sum():
+        ax = 0
+        for n in args:
+            ax += n
+        return ax
+    return sum
+
+
+#decorator 
+def now():
+    print('2018-09-19')
+
+f = now
