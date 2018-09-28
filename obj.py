@@ -82,3 +82,81 @@ dog.run()
 
 cat = Cat()
 cat.run()
+
+
+class Animal(object):
+    def run(self):
+        print('Animal is runing...')
+
+class Dog(Animal):
+    pass
+
+
+def run_twice(animal):
+    animal.run()
+    animal.run()
+
+run_twice(Dog())
+
+class Tortoise(Animal):
+    def run(self):
+        print('Tortoise is runing slowly...')
+
+run_twice(Tortoise())
+
+
+
+def fn():
+    pass
+
+
+a = str('abc')   #a is a instance of class str.
+a.__len__()      #__len__ is a function of class str.
+def mylen(str):                 #creat a function to show the length of string.
+    return str.__len__()
+a.lower()
+a.upper()
+
+class MyObject(object):
+    def __init__(self):
+        self.x = 9
+    def power(self):
+        return self.x *self.x
+
+obj = MyObject()
+
+hasattr(obj, 'x')
+hasattr(obj, 'y')
+setattr(obj, 'y', 19)
+hasattr(obj, 'y')
+getattr(obj ,'y')
+
+
+class Student(object):      #the attr name belong to class Student
+    name = 'Student'
+
+class Student(object):
+    count = 0
+    def __init__(self, name):
+        self.name = name
+        Student.count += 1
+
+# 测试:
+if Student.count != 0:
+    print('测试失败!')
+else:
+    bart = Student('Bart')
+    if Student.count != 1:
+        print('测试失败!')
+    else:
+        lisa = Student('Bart')
+        if Student.count != 2:
+            print('测试失败!')
+        else:
+            print('Students:', Student.count)
+            print('测试通过!')
+
+
+
+
+
