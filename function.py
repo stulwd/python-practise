@@ -122,7 +122,7 @@ def sortregu2(tup):
 sorted(L, key = sortregu)
 
 
-#closure
+#closure   
 def lazy_sum(*args):
     def sum():
         ax = 0
@@ -146,4 +146,63 @@ def log(func):
 
 @log
 def now():
-    print('2018-09-19')
+    print('2018-09-19')    
+
+
+
+#Hanno Tower
+def move(n, a, b, c):
+    if n == 1:
+        print(a,'>>', c)
+    else:
+        move(n-1, a, c, b)
+        move(1, a, b, c)
+        move(n-1, b, a, c)
+
+def cal(num, s=1):
+    if num == 1:
+        return s
+    else:
+        return cal(num-1, 2*s+1)
+
+a = [[0 for i in range(8)] for i in range(8)]
+b = [0 for i in range(8)]
+method = 0
+def add(x, y):
+    b[x] = y
+    for i in range(8):
+        for j in range(8):
+            if i == x or j == y or i+j == x+y or x-i == y-j:
+                a[i][j] += 1
+def clear(x, y):
+    for i in range(8):
+        for j in range(8):
+            if i == x or j == y or i+j == x+y or x-i == y-j:
+                a[i][j] -= 1
+def queen(colum):
+    global method
+    for i in range(8):
+        if a[colum][i] == 0:
+            add(colum, i)
+            if colum <= 6:
+                queen(colum+1)
+            else:
+                print(b)
+                method += 1
+            clear(colum, i)
+queen(0)
+print('total method:%d'%method)
+
+def queen(A, cur=0):
+    if cur == len(A):
+        print(A)
+        return 0
+    for col in range(len(A)):
+        A[cur], flag = col, True
+        for row in range(cur):
+            if A[row] == col or abs(col - A[row]) == cur - row:
+                flag = False
+                break
+        if flag:
+            queen(A, cur+1)
+queen([None]*8)
